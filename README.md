@@ -1,43 +1,8 @@
-The fields description of records.
+# ServeNet: A Deep Neural Network for Web Service Classification
 
 
-Title: the title of API
+Automated service classification plays a crucial role in service management such as service discovery, selection, and composition. In recent years, machine learning techniques have been used for service classification. However, they can only predict around 10 to 20 service categories due to the quality of feature engineering and the imbalance problem of service dataset. In this project, we present a deep neural network ServeNet with a novel dataset splitting algorithm to deal with these issues. ServeNet can automatically abstract low-level representation to high-level features, and then predict service classification based on the service datasets produced by the proposed splitting algorithm. To demonstrate the effectiveness of our approach, we conducted a comprehensive experimental study on 10,000 real-world services in 50 categories. The result shows that ServeNet can achieve higher accuracy than other machine learning methods.
 
-Description: API description
+### Please cite our paper as follows:
 
-APIEndpoint: API Endpoint
-
-APIPortalHomePage: API Portal / Home Page
-
-PrimaryCategory: Primary Category
-
-SecondaryCategories: Secondary Categories
-
-APIProvider: API Provider
-
-SSLSupport: SSL Support
-
-APIForumMessageBoards: API Forum Message Boards
-
-SupportEmailAddress: Support Email Address
-
-AuthenticationModel: Authentication Model
-
-IstheAPIDesign: Is the API Design/Description Non-Proprietary?
-
-Scope: Scope
-
-DeviceSpecific: Device Specific 
-
-DocsHomePageUR: Docs Home Page URL
-
-ArchitecturalStyle: Architectural Style
-
-SupportedRequestFormats: Supported Request Formats
-
-SupportedResponseFormats: Supported Response Formats
-
-IsThisanUnofficialAPI: Is This an Unofficial API?
-
-RestrictedAccess: Restricted Access (Requires Provider Approval)
-
+Yilong Yang, Peng Liu, Lianchao Ding, Bingqing Shen, Weiru Wang. ServeNet: A Deep Neural Network for Web Service Classification. [arXiv:1806.05437v1](https://arxiv.org/abs/1806.05437v1)
