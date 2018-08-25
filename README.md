@@ -5,4 +5,4 @@ Automated service classification plays a crucial role in service management such
 
 ### Please cite our paper as follows:
 
-Yilong Yang, Peng Liu, Lianchao Ding, Bingqing Shen, Weiru Wang. ServeNet: A Deep Neural Network for Web Service Classification. [arXiv:1806.05437v1](https://arxiv.org/abs/1806.05437v1)
+Yilong Yang, Peng Liu, Lianchao Ding, Bingqing Shen, Weiru Wang. [ServeNet: A Deep Neural Network for Web Service Classification](https://www.researchgate.net/publication/325778290_ServeNet_A_Deep_Neural_Network_for_Web_Service_Classification). arXiv:1806.05437v1
