@@ -12,7 +12,9 @@ from sklearn.utils import shuffle
 
 from sklearn.naive_bayes import MultinomialNB
 
-
+"""
+    Naive bayes network for services classification.
+"""
 
 def type2idx(Data_c,Type_c):
     n_samples=len(Data_c)
@@ -26,8 +28,8 @@ def type2idx(Data_c,Type_c):
 
 
 # Load data
-TrainServices = read_hdf('../RandomSplittedByCatagories.h5', key='Train')
-TestServices = read_hdf('../RandomSplittedByCatagories.h5', key='Test')
+TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Train')
+TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
 
 data_train=list(TrainServices['Service Desciption'])
 target_train=list(TrainServices['Service Classification'])
