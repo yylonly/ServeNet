@@ -23,8 +23,8 @@ def type2idx(Data_c,Type_c):
 
 
 # Load data
-TrainServices = read_hdf('../RandomSplittedByCatagories.h5', key='Train')
-TestServices = read_hdf('../RandomSplittedByCatagories.h5', key='Test')
+TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Train')
+TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
 
 data_train=list(TrainServices['Service Desciption'])
 target_train=list(TrainServices['Service Classification'])
@@ -57,9 +57,8 @@ max_features = 2000
 n_topics = 275
 max_iter = 100
 
-
 tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_features=max_features)
-# tf_train = tfidf_vectorizer.fit_transform(data_train.data)
+
 X_train = tfidf_vectorizer.fit_transform(X_train)
 
 tfidf_feature_names = tfidf_vectorizer.get_feature_names()
@@ -72,7 +71,6 @@ t0 = time()
 clf.fit(X_train, Y_train)
 t1 = time()
 print("Train time: ", t1 - t0)
-
 
 train_top5 = clf.predict_proba(X_train)
 train_top1 = clf.predict(X_train)

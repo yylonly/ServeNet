@@ -1,7 +1,5 @@
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import LatentDirichletAllocation
 from pandas import read_hdf
 from sklearn.utils import Bunch
 from sklearn.metrics import f1_score,accuracy_score,mean_squared_error
@@ -10,11 +8,8 @@ from sklearn.externals import joblib
 import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
 
-from sklearn.naive_bayes import MultinomialNB
-
-"""
-    Naive bayes network for services classification.
-"""
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 
 def type2idx(Data_c,Type_c):
@@ -39,7 +34,6 @@ target_test=list(TestServices['Service Classification'])
 
 Train_data=Bunch(data=data_train,target=target_train)
 Test_data=Bunch(data=data_test,target=target_test)
-# X, Y = shuffle(All_data.data, All_data.target, random_state=13)
 
 X_train=data_train
 Y_train=target_train
@@ -50,7 +44,6 @@ n_top_words = 20
 
 Type_c = (list(np.unique(target_train)))
 
-print(Type_c)
 print("Service Description: \n" ,X_train[0])
 print("Service Classification:",Y_train[0][0])
 print(len(X_train))
@@ -63,7 +56,6 @@ max_features = 2000
 n_topics = 275
 max_iter = 100
 
-
 tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_features=max_features)
 X_train = tfidf_vectorizer.fit_transform(X_train)
 
@@ -71,23 +63,24 @@ tfidf_feature_names = tfidf_vectorizer.get_feature_names()
 X_test = tfidf_vectorizer.transform(X_test)
 
 # Train processing
-bayes_net = MultinomialNB()
+clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=6), n_estimators=500, learning_rate=1.5)
 
 t0 = time()
-bayes_net.fit(X_train, Y_train)
+clf.fit(X_train, Y_train)
 t1 = time()
 print("Train time: ", t1 - t0)
 
-train_top5 = bayes_net.predict_proba(X_train)
-train_top1 = bayes_net.predict(X_train)
 
-test_pre_top5 = bayes_net.predict_proba(X_test)
-test_pre_top1 = bayes_net.predict(X_test)
+train_top5 = clf.predict_proba(X_train)
+train_top1 = clf.predict(X_train)
+
+test_pre_top5 = clf.predict_proba(X_test)
+test_pre_top1 = clf.predict(X_test)
 
 ret = np.empty((len(Y_test),), dtype=np.int)
 train_ret = np.empty((len(Y_train),), dtype=np.int)
 for i in range(len(Y_test)):
-    Top5 = sorted(zip(bayes_net.classes_, test_pre_top5[i]), key=lambda x: x[1])[-5:]
+    Top5 = sorted(zip(clf.classes_, test_pre_top5[i]), key=lambda x: x[1])[-5:]
     Top5=list(map(lambda x: x[0], Top5))
 
     if Y_test[i] in Top5:
@@ -96,7 +89,7 @@ for i in range(len(Y_test)):
         ret[i] = Top5[-1]
 
 for i in range(len(Y_train)):
-    Top5_train = sorted(zip(bayes_net.classes_, train_top5[i]), key=lambda x: x[1])[-5:]
+    Top5_train = sorted(zip(clf.classes_, train_top5[i]), key=lambda x: x[1])[-5:]
     Top5_train = list(map(lambda x: x[0], Top5_train))
 
     if Y_train[i] in Top5_train:
@@ -134,9 +127,3 @@ for cate in result_dict.keys():
     total_account = total_dict[cate]
     acc = result_dict[cate]
     print("%s (%d): %.3f" % (cate, total_account, acc))
-
-
-
-
-
-
