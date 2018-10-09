@@ -11,7 +11,6 @@ from sklearn.utils import shuffle
 from sklearn.ensemble import RandomForestClassifier
 
 
-
 def type2idx(Data_c,Type_c):
     n_samples=len(Data_c)
     target = np.empty((n_samples,), dtype=np.int)
@@ -63,17 +62,8 @@ tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_feat
 # tf_train = tfidf_vectorizer.fit_transform(data_train.data)
 X_train = tfidf_vectorizer.fit_transform(X_train)
 
-# print("Model LDA...")
-# lda = LatentDirichletAllocation(n_topics=n_topics,
-#                                         max_iter=max_iter,
-#                                         learning_method='batch', random_state=0, n_jobs=1, evaluate_every=10,#doc_topic_prior=0.01,topic_word_prior=0.01,
-#                                         verbose=1)
-
-# X_train = lda.fit_transform(X_train)
-
 tfidf_feature_names = tfidf_vectorizer.get_feature_names()
 X_test = tfidf_vectorizer.transform(X_test)
-# X_test = lda.transform(X_test)
 
 # Train processing
 clf = RandomForestClassifier(n_estimators=1000, max_depth=40, random_state=0)
@@ -116,3 +106,27 @@ print("Test top5 acc:%f,train top5  acc:%f" % (accuracy_score(Y_test, ret), accu
 print("Test top1 acc:%f,train top1 acc:%f" % (
 accuracy_score(Y_test, test_pre_top1), accuracy_score(Y_train, train_top1)))
 print("F1_score:%f" % float(f1_s))
+
+####################################################################
+# calculate accuracy of each category.
+type_c_index = type2idx(Type_c, Type_c)
+
+result_dict = {}
+total_dict = {}
+for idx in type_c_index:
+    category = Type_c[idx]
+    total_count = 0
+    account = 0
+    for i in range(len(Y_test)):
+        if Y_test[i] == idx:
+            total_count += 1
+            if Y_test[i] == ret[i]:
+                account += 1
+
+    result_dict[category] = account / total_count * 1.
+    total_dict[category] = total_count
+
+for cate in result_dict.keys():
+    total_account = total_dict[cate]
+    acc = result_dict[cate]
+    print("%s (%d): %.3f" % (cate, total_account, acc))

@@ -10,12 +10,14 @@ from sklearn.externals import joblib
 import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
 
+
 def print_top_words(model, feature_names, n_top_words):
     for topic_idx, topic in enumerate(model.components_):
         message = "Topic #%d: " % topic_idx
         message += " ".join([feature_names[i]
                              for i in topic.argsort()[:-n_top_words - 1:-1]])
         print(message)
+
 
 def type2idx(Data_c,Type_c):
     n_samples=len(Data_c)
@@ -26,6 +28,8 @@ def type2idx(Data_c,Type_c):
         else:
             target[idx] = -1
     return target
+
+
 def svm_cross_validation(train_x, train_y):
     from sklearn.model_selection import GridSearchCV
     from sklearn.svm import SVC
@@ -39,6 +43,7 @@ def svm_cross_validation(train_x, train_y):
     model = SVC(kernel='rbf', C=best_parameters['C'], gamma=best_parameters['gamma'], probability=True)
     model.fit(train_x, train_y)
     return model
+
 
 TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Train')
 TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
@@ -77,7 +82,7 @@ print("Extracting tf-idf features for LDA...")
 
 max_features=2000
 n_topics=275
-max_iter=10
+max_iter=60
 kernel='rbf'
 save_partName=kernel+'_'+str(max_features)+'_'+str(n_topics)+'_'+str(max_iter)
 
@@ -86,29 +91,29 @@ tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_feat
 X_train = tfidf_vectorizer.fit_transform(X_train)
 # print(X_train[0])
 
-print("Model LDA...")
-lda = LatentDirichletAllocation(n_topics=n_topics,
-                                        max_iter=max_iter,
-                                        learning_method='batch', random_state=0, n_jobs=1, evaluate_every=10,#doc_topic_prior=0.01,topic_word_prior=0.01,
-                                        verbose=1)
-
-X_train=lda.fit_transform(X_train)
+# print("Model LDA...")
+# lda = LatentDirichletAllocation(n_topics=n_topics,
+#                                         max_iter=max_iter,
+#                                         learning_method='batch', random_state=0, n_jobs=1, evaluate_every=10,#doc_topic_prior=0.01,topic_word_prior=0.01,
+#                                         verbose=1)
+#
+# X_train=lda.fit_transform(X_train)
 
 #
 # joblib.dump(lda, 'lda275_e.model')
 # print(X_train[0])
 # 打印最佳模型
-joblib.dump(lda, 'lda_'+save_partName+'.model')
+# joblib.dump(lda, 'lda_'+save_partName+'.model')
 # print("\nTopics in LDA model:")
 print("same tfidf_vectorizer")
 tfidf_feature_names = tfidf_vectorizer.get_feature_names()
 
 X_test = tfidf_vectorizer.transform(X_test)
-X_test=lda.transform(X_test)
+# X_test=lda.transform(X_test)
 
 # train_target=y_train
 # test_target=y_test
-max_iter=range(1,20,10)
+max_iter=range(1,1000,10)
 F1_score=[]
 train_errors1 = list()
 test_errors1 = list()
@@ -142,6 +147,7 @@ for idx, iter in enumerate(max_iter):
     test_pre_top1 = clf.predict(X_test)
     test_acctop1.append((iter,accuracy_score(Y_test, test_pre_top1)))
     test_errors1.append((iter, mean_squared_error(Y_test, test_pre_top1)))
+
 
     ret=np.empty((len(Y_test),), dtype=np.int)
     train_ret=np.empty((len(Y_train),), dtype=np.int)
@@ -184,39 +190,3 @@ joblib.dump(test_acctop5, 'test_acctop5'+save_partName+'.dat')
 joblib.dump(test_errorstop5, 'test_errorstop5'+save_partName+'.dat')
 joblib.dump(train_errorstop5, 'train_errorstop5'+save_partName+'.dat')
 # plt.plot(*zip(*F1_score))
-
-####################################################################
-test_pre_top5 = clf.predict_proba(X_test)
-
-ret = np.empty((len(Y_test),), dtype=np.int)
-for i in range(len(Y_test)):
-    Top5 = sorted(zip(clf.classes_, test_pre_top5[i]), key=lambda x: x[1])[-5:]
-    Top5=list(map(lambda x: x[0], Top5))
-
-    if Y_test[i] in Top5:
-        ret[i]=Y_test[i]
-    else:
-        ret[i]=Top5[-1]
-
-# calculate accuracy of each category.
-type_c_index = type2idx(Type_c, Type_c)
-
-result_dict = {}
-total_dict = {}
-for idx in type_c_index:
-    category = Type_c[idx]
-    total_count = 0
-    account = 0
-    for i in range(len(Y_test)):
-        if Y_test[i] == idx:
-            total_count += 1
-            if Y_test[i] == ret[i]:
-                account += 1
-
-    result_dict[category] = account / total_count * 1.
-    total_dict[category] = total_count
-
-for cate in result_dict.keys():
-    total_account = total_dict[cate]
-    acc = result_dict[cate]
-    print("%s (%d): %.3f" % (cate, total_account, acc))
