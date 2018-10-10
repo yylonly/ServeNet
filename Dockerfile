@@ -5,7 +5,7 @@ VOLUME /data
 
 WORKDIR /data
 
-RUN python -m pip install jupyterlab gputil psutil humanize seaborn keras && \
+RUN python -m pip install jupyterlab gputil psutil humanize seaborn keras tables nltk && \
     pip install --upgrade pip
 
 EXPOSE 8888
