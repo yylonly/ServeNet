@@ -1,65 +1,41 @@
 import numpy as np
+from sklearn import preprocessing
 from sklearn.feature_extraction.text import TfidfVectorizer
-from pandas import read_hdf
-from sklearn.utils import Bunch
-from sklearn.metrics import f1_score,accuracy_score,mean_squared_error
+from pandas import read_hdf, concat
+from sklearn.metrics import f1_score, accuracy_score
 from time import time
-from sklearn.externals import joblib
-import matplotlib.pyplot as plt
-from sklearn.utils import shuffle
-
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 
-
-def type2idx(Data_c,Type_c):
-    n_samples=len(Data_c)
-    target = np.empty((n_samples,), dtype=np.int)
-    for idx in range(n_samples):
-        if Data_c[idx] in Type_c:
-            target[idx]=Type_c.index(Data_c[idx])
-        else:
-            target[idx] = -1
-    return target
-
+from Utils.utils import type2idx
 
 # Load data
 TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Train')
 TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
+AllData = concat([TrainServices, TestServices])
 
-data_train=list(TrainServices['Service Desciption'])
-target_train=list(TrainServices['Service Classification'])
-data_test=list(TestServices['Service Desciption'])
-target_test=list(TestServices['Service Classification'])
+data_train = list(TrainServices['Service Desciption'])
+target_train = list(TrainServices['Service Classification'])
+data_test = list(TestServices['Service Desciption'])
+target_test = list(TestServices['Service Classification'])
 
-Train_data=Bunch(data=data_train,target=target_train)
-Test_data=Bunch(data=data_test,target=target_test)
-
-X_train=data_train
-Y_train=target_train
-X_test=data_test
-Y_test=target_test
-
-n_top_words = 20
+X_train = data_train
+Y_train = target_train
+X_test = data_test
+Y_test = target_test
 
 Type_c = (list(np.unique(target_train)))
 
-print("Service Description: \n" ,X_train[0])
-print("Service Classification:",Y_train[0][0])
-print(len(X_train))
-print(len(X_test))
-
-Y_train=type2idx(Y_train,Type_c)
-Y_test=type2idx(Y_test,Type_c)
+encoder = preprocessing.LabelEncoder()
+Y_train = encoder.fit_transform(Y_train)
+Y_test = encoder.fit_transform(Y_test)
 
 max_features = 2000
-n_topics = 275
-max_iter = 100
 
-tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_features=max_features)
-X_train = tfidf_vectorizer.fit_transform(X_train)
+tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True, stop_words='english', max_features=max_features)
+tfidf_vectorizer.fit(list(AllData['Service Desciption']))
 
-tfidf_feature_names = tfidf_vectorizer.get_feature_names()
+X_train = tfidf_vectorizer.transform(X_train)
 X_test = tfidf_vectorizer.transform(X_test)
 
 # Train processing
@@ -69,7 +45,6 @@ t0 = time()
 clf.fit(X_train, Y_train)
 t1 = time()
 print("Train time: ", t1 - t0)
-
 
 train_top5 = clf.predict_proba(X_train)
 train_top1 = clf.predict(X_train)
@@ -99,11 +74,12 @@ for i in range(len(Y_train)):
 
 f1_s = f1_score(Y_test, ret, average='micro')
 
+print("=" * 60)
 print("Test top5 acc:%f,train top5  acc:%f" % (accuracy_score(Y_test, ret), accuracy_score(Y_train, train_ret)))
-print("Test top1 acc:%f,train top1 acc:%f" % (
-accuracy_score(Y_test, test_pre_top1), accuracy_score(Y_train, train_top1)))
+print("Test top1 acc:%f,train top1 acc:%f" % ( accuracy_score(Y_test, test_pre_top1),
+                                               accuracy_score(Y_train, train_top1)))
 print("F1_score:%f" % float(f1_s))
-
+print("=" * 60)
 ####################################################################
 # calculate accuracy of each category.
 type_c_index = type2idx(Type_c, Type_c)
@@ -112,8 +88,7 @@ result_dict = {}
 total_dict = {}
 for idx in type_c_index:
     category = Type_c[idx]
-    total_count = 0
-    account = 0
+    total_count = account = 0
     for i in range(len(Y_test)):
         if Y_test[i] == idx:
             total_count += 1
