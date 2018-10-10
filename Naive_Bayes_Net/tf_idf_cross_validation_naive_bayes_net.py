@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn import preprocessing
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
@@ -13,6 +14,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 
 from sklearn.naive_bayes import MultinomialNB
+
 
 """
     Naive bayes network for services classification using random dataset selecting method.
@@ -35,10 +37,9 @@ TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories
 TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
 
 train_len = len(TrainServices)
-test_len = len(TestServices)
 
 # Merge training and testing data
-allData = concat([TrainServices, TestServices])
+AllData = concat([TrainServices, TestServices])
 
 # kf
 kf = KFold(n_splits=10, shuffle=False)
@@ -56,39 +57,30 @@ avg_top_5_train_acc_socre = avg_top_5_test_acc_socre = 0.0
 avg_top_1_train_acc_score = avg_top_1_test_acc_score = 0.0
 avg_f_1_score = 0.0
 index = 0
-for train_index, test_index in kf.split(allData):
+for train_index, test_index in kf.split(AllData):
     # create new training and testing services
-    TrainServices, TestServices = allData.iloc[train_index], allData.iloc[test_index]
+    TrainServices, TestServices = AllData.iloc[train_index], AllData.iloc[test_index]
 
     data_train=list(TrainServices['Service Desciption'])
     target_train=list(TrainServices['Service Classification'])
     data_test=list(TestServices['Service Desciption'])
     target_test=list(TestServices['Service Classification'])
 
-    Train_data=Bunch(data=data_train,target=target_train)
-    Test_data=Bunch(data=data_test,target=target_test)
-    # X, Y = shuffle(All_data.data, All_data.target, random_state=13)
-
     X_train=data_train
     Y_train=target_train
     X_test=data_test
     Y_test=target_test
 
-    n_top_words = 20
-
-    Type_c = (list(np.unique(target_train)))
-
-    Y_train=type2idx(Y_train,Type_c)
-    Y_test=type2idx(Y_test,Type_c)
+    encoder = preprocessing.LabelEncoder()
+    Y_train = encoder.fit_transform(Y_train)
+    Y_test = encoder.fit_transform(Y_test)
 
     max_features = 2000
-    n_topics = 275
-    max_iter = 100
 
     tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_features=max_features)
-    X_train = tfidf_vectorizer.fit_transform(X_train)
+    tfidf_vectorizer.fit(list(AllData['Service Desciption']))
 
-    tfidf_feature_names = tfidf_vectorizer.get_feature_names()
+    X_train = tfidf_vectorizer.transform(X_train)
     X_test = tfidf_vectorizer.transform(X_test)
 
     # Train processing
@@ -137,9 +129,6 @@ for train_index, test_index in kf.split(allData):
     avg_top_1_train_acc_score += accuracy_score(Y_train, train_top1)
     avg_top_1_test_acc_score += accuracy_score(Y_test, test_pre_top1)
     avg_f_1_score += float(f1_s)
-    # print("Test top5 acc:%f,train top5  acc:%f" % (accuracy_score(Y_test, ret), accuracy_score(Y_train, train_ret)))
-    # print("Test top1 acc:%f,train top1 acc:%f" % (accuracy_score(Y_test, test_pre_top1), accuracy_score(Y_train, train_top1)))
-    # print("F1_score:%f" % float(f1_s))
     index += 1
 
 
@@ -164,10 +153,10 @@ print("Mean top-5 train: %0.3f top-5 test: %0.3f top-1 train: %.3f top-1 test: %
     top_5_test_mean, top_1_train_mean, top_1_test_mean))
 
 # variance
-top_5_train_var = np.var(top_5_train_scores)
-top_5_test_var = np.var(top_5_test_scores)
-top_1_train_var = np.var(top_1_train_scores)
-top_1_test_var = np.var(top_1_test_scores)
+top_5_train_std = np.var(top_5_train_scores)
+top_5_test_std = np.var(top_5_test_scores)
+top_1_train_std = np.var(top_1_train_scores)
+top_1_test_std = np.var(top_1_test_scores)
 
-print("Variance top-5 train: %0.6f top-5 test: %0.6f top-1 train: %.6f top-1 test: %.6f" % (top_5_train_var, \
-    top_5_test_var, top_1_train_var, top_1_test_var))
+print("Std top-5 train: %0.6f top-5 test: %0.6f top-1 train: %.6f top-1 test: %.6f" % (top_5_train_std, \
+                                                                                       top_5_test_std, top_1_train_std, top_1_test_std))
