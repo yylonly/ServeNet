@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.svm import SVC
-from pandas import  read_hdf
+from pandas import  read_hdf, concat
 from sklearn.utils import Bunch
 from sklearn.metrics import f1_score,accuracy_score,mean_squared_error
 from time import time
@@ -40,9 +40,9 @@ def svm_cross_validation(train_x, train_y):
     model.fit(train_x, train_y)
     return model
 
-TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Train')
-TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
-# All_data=read_hdf('./data/RandomSplittedByCatagories.h5',key='AllData')
+TrainServices = read_hdf('D:\python_projects\ServeNet_others\data\\ramdom_categorg_percent\RandomSplittedByCatagories9.h5', key='Train')
+TestServices = read_hdf('D:\python_projects\ServeNet_others\data\\ramdom_categorg_percent\RandomSplittedByCatagories9.h5', key='Test')
+AllData = concat([TrainServices, TestServices])
 
 data_train=list(TrainServices['Service Desciption'])
 target_train=list(TrainServices['Service Classification'])
@@ -75,15 +75,16 @@ Y_train=type2idx(Y_train,Type_c)
 Y_test=type2idx(Y_test,Type_c)
 print("Extracting tf-idf features for LDA...")
 
-max_features=2000
+max_features=660
 n_topics=275
-max_iter=10
-kernel='rbf'
+max_iter=60
+kernel='linear'
 save_partName=kernel+'_'+str(max_features)+'_'+str(n_topics)+'_'+str(max_iter)
 
 tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_features=max_features)
+tfidf_vectorizer.fit(list(AllData['Service Desciption']))
 # tf_train = tfidf_vectorizer.fit_transform(data_train.data)
-X_train = tfidf_vectorizer.fit_transform(X_train)
+X_train = tfidf_vectorizer.transform(X_train)
 # print(X_train[0])
 
 print("Model LDA...")
@@ -108,7 +109,7 @@ X_test=lda.transform(X_test)
 
 # train_target=y_train
 # test_target=y_test
-max_iter=range(1,20,10)
+max_iter=range(1,200,10)
 F1_score=[]
 train_errors1 = list()
 test_errors1 = list()
@@ -169,8 +170,8 @@ for idx, iter in enumerate(max_iter):
     train_errorstop5.append((iter, mean_squared_error(Y_train, train_ret)))
     test_errorstop5.append((iter, mean_squared_error(Y_test, ret)))
     print("-"*80)
-    print("Test top5 acc:%f,train top5  acc:%f"%(accuracy_score(Y_test, ret),accuracy_score(Y_train, train_ret)))
-    print("Test top1 acc:%f,train top1 acc:%f"%(accuracy_score(Y_test, test_pre_top1),accuracy_score(Y_train, train_top1)))
+    print("Test top5 acc:%4f,train top5  acc:%4f"%(accuracy_score(Y_test, ret),accuracy_score(Y_train, train_ret)))
+    print("Test top1 acc:%4f,train top1 acc:%4f"%(accuracy_score(Y_test, test_pre_top1),accuracy_score(Y_train, train_top1)))
     print("Epoch:%d,F1_score:%f"%(iter,float(f1_s)))
     F1_score.append((iter,f1_s))
 
@@ -219,4 +220,4 @@ for idx in type_c_index:
 for cate in result_dict.keys():
     total_account = total_dict[cate]
     acc = result_dict[cate]
-    print("%s (%d): %.3f" % (cate, total_account, acc))
+    print("%s (%d): %.4f" % (cate, total_account, acc))

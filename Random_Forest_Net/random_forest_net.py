@@ -9,8 +9,8 @@ from sklearn.ensemble import RandomForestClassifier
 from Utils.utils import type2idx
 
 # Load data
-TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Train')
-TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
+TrainServices = read_hdf('D:\python_projects\ServeNet_others\data\\ramdom_categorg_percent\RandomSplittedByCatagories9.h5', key='Train')
+TestServices = read_hdf('D:\python_projects\ServeNet_others\data\\ramdom_categorg_percent\RandomSplittedByCatagories9.h5', key='Test')
 AllData = concat([TrainServices, TestServices])
 
 data_train=list(TrainServices['Service Desciption'])
@@ -38,7 +38,7 @@ X_train = tfidf_vectorizer.transform(X_train)
 X_test = tfidf_vectorizer.transform(X_test)
 
 # Train processing
-clf = RandomForestClassifier(n_estimators=1000, max_depth=40, random_state=0)
+clf = RandomForestClassifier(n_estimators=2000, max_depth=40)
 
 t0 = time()
 clf.fit(X_train, Y_train)
@@ -74,10 +74,10 @@ for i in range(len(Y_train)):
 f1_s = f1_score(Y_test, test_ret, average='micro')
 
 print("=" * 60)
-print("Test top5 acc:%f,train top5  acc:%f" % (accuracy_score(Y_test, test_ret), accuracy_score(Y_train, train_ret)))
-print("Test top1 acc:%f,train top1 acc:%f" % (
+print("Test top5 acc:%.4f,train top5  acc:%.4f" % (accuracy_score(Y_test, test_ret), accuracy_score(Y_train, train_ret)))
+print("Test top1 acc:%.4f,train top1 acc:%.4f" % (
 accuracy_score(Y_test, test_pre_top1), accuracy_score(Y_train, train_top1)))
-print("F1_score:%f" % float(f1_s))
+print("F1_score:%.4f" % float(f1_s))
 print("=" * 60)
 ####################################################################
 # calculate accuracy of each category.
@@ -101,4 +101,4 @@ for idx in type_c_index:
 for cate in result_dict.keys():
     total_account = total_dict[cate]
     acc = result_dict[cate]
-    print("%s (%d): %.3f" % (cate, total_account, acc))
+    print("%s (%d): %.4f" % (cate, total_account, acc))

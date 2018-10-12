@@ -10,8 +10,8 @@ from sklearn.tree import DecisionTreeClassifier
 from Utils.utils import type2idx
 
 # Load data
-TrainServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Train')
-TestServices = read_hdf('D:\python_projects\ServeNet\RandomSplittedByCatagories.h5', key='Test')
+TrainServices = read_hdf('D:\python_projects\ServeNet_others\data\\ramdom_categorg_percent\RandomSplittedByCatagories9.h5', key='Train')
+TestServices = read_hdf('D:\python_projects\ServeNet_others\data\\ramdom_categorg_percent\RandomSplittedByCatagories9.h5', key='Test')
 AllData = concat([TrainServices, TestServices])
 
 data_train = list(TrainServices['Service Desciption'])
@@ -30,7 +30,7 @@ encoder = preprocessing.LabelEncoder()
 Y_train = encoder.fit_transform(Y_train)
 Y_test = encoder.fit_transform(Y_test)
 
-max_features = 2000
+max_features = 600
 
 tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True, stop_words='english', max_features=max_features)
 tfidf_vectorizer.fit(list(AllData['Service Desciption']))
@@ -39,7 +39,7 @@ X_train = tfidf_vectorizer.transform(X_train)
 X_test = tfidf_vectorizer.transform(X_test)
 
 # Train processing
-clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=6), n_estimators=500, learning_rate=1.5)
+clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=12), n_estimators=800)
 
 t0 = time()
 clf.fit(X_train, Y_train)
@@ -75,10 +75,10 @@ for i in range(len(Y_train)):
 f1_s = f1_score(Y_test, ret, average='micro')
 
 print("=" * 60)
-print("Test top5 acc:%f,train top5  acc:%f" % (accuracy_score(Y_test, ret), accuracy_score(Y_train, train_ret)))
-print("Test top1 acc:%f,train top1 acc:%f" % ( accuracy_score(Y_test, test_pre_top1),
+print("Test top5 acc:%.4f,train top5  acc:%.4f" % (accuracy_score(Y_test, ret), accuracy_score(Y_train, train_ret)))
+print("Test top1 acc:%.4f,train top1 acc:%.4f" % ( accuracy_score(Y_test, test_pre_top1),
                                                accuracy_score(Y_train, train_top1)))
-print("F1_score:%f" % float(f1_s))
+print("F1_score:%.3f" % float(f1_s))
 print("=" * 60)
 ####################################################################
 # calculate accuracy of each category.
@@ -98,7 +98,18 @@ for idx in type_c_index:
     result_dict[category] = account / total_count * 1.
     total_dict[category] = total_count
 
-for cate in result_dict.keys():
-    total_account = total_dict[cate]
-    acc = result_dict[cate]
-    print("%s (%d): %.3f" % (cate, total_account, acc))
+labels = ["Tools","Financial","Messaging","eCommerce","Payments","Social","Enterprise","Mapping","Telephony","Science",
+          "Government","Email","Security","Reference","Video","Travel","Sports","Search","Advertising","Transportation",
+          "Education","Games","Music","Photos","Cloud","Bitcoin","Project Management","Data","Backend","Database",
+          "Shipping","Weather","Application Development","Analytics","Internet of Things","Medical","Real Estate",
+          "Events","Banking","Stocks","Entertainment","Storage","Marketing","File Sharing","News Services","Domains",
+          "Chat","Media","Images","Other"]
+
+for label in labels:
+    acc = result_dict[label]
+    print(acc)
+
+# for cate in result_dict.keys():
+#     total_account = total_dict[cate]
+#     acc = result_dict[cate]
+#     print("%s (%d): %.4f" % (cate, total_account, acc))
