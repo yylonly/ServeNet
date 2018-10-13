@@ -1,6 +1,6 @@
 import json
 
-path = 'D:\python_projects\ServeNet_others\RCNN_acc_category.json'
+path = 'D:\python_projects\ServeNet_others\servenet_acc_category.json'
 
 with open(path, 'r') as f:
     array = json.load(f)

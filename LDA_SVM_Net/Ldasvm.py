@@ -78,7 +78,7 @@ print("Extracting tf-idf features for LDA...")
 max_features=660
 n_topics=275
 max_iter=60
-kernel='linear'
+kernel='rbf'
 save_partName=kernel+'_'+str(max_features)+'_'+str(n_topics)+'_'+str(max_iter)
 
 tfidf_vectorizer=TfidfVectorizer(sublinear_tf=True,stop_words='english',max_features=max_features)
@@ -221,3 +221,40 @@ for cate in result_dict.keys():
     total_account = total_dict[cate]
     acc = result_dict[cate]
     print("%s (%d): %.4f" % (cate, total_account, acc))
+
+############################################
+# top-1 categories
+test_pre_top1 = clf.predict(X_test)
+print("=" * 60)
+type_c_index = type2idx(Type_c, Type_c)
+
+result_dict = {}
+total_dict = {}
+avg = 0.0
+correct_num = 0
+print(Y_test.shape)
+print(test_pre_top1.shape)
+for idx in type_c_index:
+    category = Type_c[idx]
+    total_count = 0
+    account = 0
+    for i in range(len(Y_test)):
+        if Y_test[i] == idx:
+            total_count += 1
+            if Y_test[i] == test_pre_top1[i]:
+                account += 1
+                correct_num += 1
+
+    result_dict[category] = format(account / total_count * 100., '.2f')
+    total_dict[category] = total_count
+
+labels = ["Tools","Financial","Messaging","eCommerce","Payments","Social","Enterprise","Mapping","Telephony","Science",
+          "Government","Email","Security","Reference","Video","Travel","Sports","Search","Advertising","Transportation",
+          "Education","Games","Music","Photos","Cloud","Bitcoin","Project Management","Data","Backend","Database",
+          "Shipping","Weather","Application Development","Analytics","Internet of Things","Medical","Real Estate",
+          "Events","Banking","Stocks","Entertainment","Storage","Marketing","File Sharing","News Services","Domains",
+          "Chat","Media","Images","Other"]
+
+for label in labels:
+    acc = result_dict[label]
+    print(acc)
