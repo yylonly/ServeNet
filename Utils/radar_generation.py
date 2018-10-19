@@ -6,19 +6,31 @@ import json
 
 basic_path = 'D:\python_projects\ServeNet_others'
 
-top5_json_files = []
-if os.path.exists(basic_path):
-    files = os.listdir(basic_path)
-    for f in files:
-        if 'top1_' in f:
-            top5_json_files.append(f)
+top5_json_files = ["top5_cnn_acc_category.json", "top5_adaboost_acc_category.json",
+                   "top5_lda_linear_svm_acc_category.json", "top5_lda_rbf_svm_acc_category.json",
+                   "top5_naive_bayes_acc_category.json", "top5_LSTM_acc_category.json",
+                   "top5_random_forest_acc_category.json", "top5_RCNN_acc_category.json",
+                   "top5_CLSTM_acc_category.json", "top5_Attention-LSTM_acc_category.json",
+                   "top5_BILSTM_acc_category.json", "top5_servenet_acc_category.json"]
+top1_json_files = ["top1_cnn_acc_category.json", "top1_adaboost_acc_category.json",
+                   "top1_lda_linear_svm_acc_category.json", "top1_lda_rbf_svm_acc_category.json",
+                   "top1_naive_bayes_acc_category.json", "top1_LSTM_acc_category.json",
+                   "top1_random_forest_acc_category.json", "top1_RCNN_acc_category.json",
+                   "top1_CLSTM_acc_category.json", "top1_Attention-LSTM_acc_category.json",
+                   "top1_BILSTM_acc_category.json", "top1_servenet_acc_category.json"]
 
-print('Top5 files num: ', len(top5_json_files), top5_json_files)
+flag = 'top5'
+if flag == 'top1':
+    json_files = top1_json_files
+elif flag == 'top5':
+    json_files = top5_json_files
+
+print('Top5 files num: ', len(json_files), json_files)
 
 # generate
 method_names = ["AdaBoost","Attention-LSTM","BI-LSTM","C-LSTM","CNN","LDA-Linear-SVM","LDA-RBF-SVM","LSTM","NaiveBayes",
                 "RF","Recurrent-CNN","ServeNet"]
-print(len(top5_json_files) == len(method_names))
+print(len(json_files) == len(method_names))
 
 categories = ["Tools","Financial","Messaging","eCommerce","Payments","Social","Enterprise","Mapping","Telephony","Science",
           "Government","Email","Security","Reference","Video","Travel","Sports","Search","Advertising","Transportation",
@@ -42,7 +54,7 @@ df = pandas.DataFrame(columns=columns)
 for i in range(len(ordered_method_names)):
     method = ordered_method_names[i]
     file_index = method_names.index(method)
-    file_name = top5_json_files[file_index]
+    file_name = json_files[file_index]
     print('file name:', file_name)
 
     ab_path = os.path.join(basic_path, file_name)
@@ -88,6 +100,7 @@ for i in range(len(kinds)):
 
 # 添加属性标签
 ax.set_thetagrids(angle * 180 / np.pi, labels)
+ax.tick_params(direction='out', length=93, width=2, grid_color='k', grid_linewidth=0.1, grid_alpha=0.5, labelsize=20)
 plt.title('Categories')
-plt.legend(loc='lower left', bbox_to_anchor=(1, 0.7))
+plt.legend(loc='lower left', bbox_to_anchor=(1.2, 0.8), prop={'size': 20})
 plt.show()
