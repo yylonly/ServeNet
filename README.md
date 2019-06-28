@@ -13,6 +13,6 @@ Yilong Yang, Peng Liu, Lianchao Ding, Bingqing Shen, Weiru Wang. [ServeNet: A De
 ### Start jupyter lab with docker
 
 * git clone https://github.com/yylonly/ServeNet.git
-* docker build . -t ServeNet
+* docker build . -t servenet
 * docker run -itd --name servenet -p 8888:8888 --rm -v /path/ServeNet:/data ServeNet 
 * docker logs ServeNet //find url to open jupyter lab
