@@ -1,4 +1,3 @@
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/yylonly/ServeNet/master)
 
 # ServeNet: A Deep Neural Network for Web Service Classification
 
@@ -7,13 +6,24 @@ Automated service classification plays a crucial role in service management such
 
 ### Please cite our paper as follows:
 
-Yilong Yang, Peng Liu, Lianchao Ding, Bingqing Shen, Weiru Wang. [ServeNet: A Deep Neural Network for Web Service Classification](https://www.researchgate.net/publication/325778290_ServeNet_A_Deep_Neural_Network_for_Web_Service_Classification). arXiv:1806.05437v1
+Yilong Yang, Wei Ke, Weiru Wang, Yongxin Zhao “Deep Learning for Web Services Classification”. presented at the 11th International Conferences on Web Services (ICWS’19), Milan, Italy, July 2019.
 
 
 ### Start jupyter lab with docker
 
 * git clone https://github.com/yylonly/ServeNet.git
-* docker build . -t servenet
-* docker run -itd --name servenet -p 8888:8888 --rm -v /path/ServeNet:/data ServeNet 
-* (optional if auto restart) docker run -itd --name servenet -p 8888:8888 --restart=always -v /path/ServeNet:/data ServeNet 
-* docker logs ServeNet //find url to open jupyter lab
+
+#### CPU
+* docker build . -t servenet:cpu -f Dockerfile-CPU
+* docker run -itd --rm --name servenet-cpu -p 8888:8888 -v /yourpath:/data servenet:cpu
+#### Find URL in log to open jupyter lab
+* docker logs servenet-cpu 
+
+
+#### GPU
+* docker build . -t servenet:gpu -f Dockerfile-GPU
+* docker run -itd --rm --runtime=nvidia --name servenet-gpu -p 8888:8888 -v /yourpath:/data servenet:gpu
+
+#### Find URL in log to open jupyter lab
+* docker logs servenet-gpu 
+
