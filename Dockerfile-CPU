@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-devel-gpu-py3
+FROM tensorflow/tensorflow:latest-py3
 
 RUN mkdir -p /data
 VOLUME /data
@@ -10,4 +10,4 @@ RUN python -m pip install jupyterlab gputil psutil humanize seaborn keras tables
 
 EXPOSE 8888
 
-CMD ["jupyter", "lab", "--allow-root", "--no-browser"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--no-browser"]
