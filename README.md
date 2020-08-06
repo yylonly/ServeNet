@@ -6,10 +6,37 @@ Automated service classification plays a crucial role in service management such
 
 ### Please cite our paper as follows:
 
-Yilong Yang, Wei Ke, Weiru Wang, Yongxin Zhao “Deep Learning for Web Services Classification”. presented at the 11th International Conferences on Web Services (ICWS’19), Milan, Italy, July 2019.
+* Yilong Yang, Wei Ke, Weiru Wang, Yongxin Zhao. "Deep Learning for Web Services Classification". presented at the 11th International Conferences on Web Services (ICWS’19), Milan, Italy, July 2019.
+
+* Yilong Yang, Nafees Qamar, Peng Liu, Katarina Grolinger, Weiru Wang, Zhi Li, Zhifang Liao. "ServeNet: A Deep Neural Network for Web Service Classification" . to be presented at the 12th International Conferences on Web Services (ICWS’20), Beijing, China, Oct. 2020.
 
 
-### Start jupyter lab with docker
+### DataSet in Release:
+
+* RAW data
+* CSV
+* hdf5 or h5
+* Tensor in pickle
+
+
+### Reuseable Models in Release:
+
+* BILSTM.hdf5
+* CLSTM.hdf5
+* CNN.hdf5
+* LSTM.hdf5
+* RCNN.hdf5
+* ServeNet.hdf5
+* ServeNet-ICWS20.hdf5
+
+
+### Development 
+
+#### (Online) Google Colab
+
+Directly open .ipynb in Google Colab and prepare data 
+
+#### (Local) Start jupyter lab with docker
 
 * git clone https://github.com/yylonly/ServeNet.git
 
