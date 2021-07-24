@@ -5,8 +5,8 @@ Jing Zhang, Yang Chen, Yilong Yang, Changran Lei, Deqiang Wang. "ServeNet-LT: A 
 ------- 
 
 #### Run code as follows:
-* 1.Download mode file(.pth) from here. Make a new folder named 'model', and put download mode file(.pth) into 'model' folder.<br>  
+* 1.Download mode file(.pt and .pkl) from [here](https://bhpan.buaa.edu.cn:443/link/EF86AC0735FE85790657248234749747). Make a new folder named 'model', and put download mode file(.pt and .pkl) into 'model' folder.<br>  
 
-* 2.Download Bert pre-train model(.bin) from here, then put download Bert mode into 'bert-base-uncased'<br>  
+* 2.Download Bert pre-train model(.bin) from [here](https://bhpan.buaa.edu.cn:443/link/EF86AC0735FE85790657248234749747), then put download Bert mode into 'bert-base-uncased'<br>  
 
 * 3.Run ServeNet-LT.ipynb.
