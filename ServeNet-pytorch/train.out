@@ -1,0 +1,584 @@
+1.7.1
+True
+------------------data get finished-------------------------------
+------------------model finished-------------------------------
+==>>> epoch: 0, batch index: 10, train loss: 3.880275
+==>>> epoch: 0, batch index: 20, train loss: 5.160368
+==>>> epoch: 0, batch index: 30, train loss: 5.566409
+==>>> epoch: 0, batch index: 40, train loss: 5.642138
+==>>> epoch: 0, batch index: 50, train loss: 5.616151
+==>>> epoch: 0, batch index: 60, train loss: 5.589134
+==>>> epoch: 0, batch index: 70, train loss: 5.531616
+==>>> epoch: 0, batch index: 80, train loss: 5.468005
+==>>> epoch: 0, batch index: 90, train loss: 5.399408
+==>>> epoch: 0, batch index: 100, train loss: 5.378290
+==>>> epoch: 0, batch index: 110, train loss: 5.352718
+==>>> epoch: 0, batch index: 120, train loss: 5.252066
+==>>> epoch: 0, batch index: 121, train loss: 5.254793
+Accuracy of the network on the train: 5 %
+top5 Accuracy of the network on the train: 19 %
+Accuracy of the network on the test: 5 %
+top5 Accuracy of the network on the test: 18 %
+>>>>>> current top1 acc : 0.05337078651685393
+>>>>>> current top5 acc : 0.18508114856429464
+==>>> epoch: 1, batch index: 10, train loss: 3.369912
+==>>> epoch: 1, batch index: 20, train loss: 4.547805
+==>>> epoch: 1, batch index: 30, train loss: 4.926858
+==>>> epoch: 1, batch index: 40, train loss: 5.053090
+==>>> epoch: 1, batch index: 50, train loss: 5.072030
+==>>> epoch: 1, batch index: 60, train loss: 5.058732
+==>>> epoch: 1, batch index: 70, train loss: 5.069521
+==>>> epoch: 1, batch index: 80, train loss: 5.030904
+==>>> epoch: 1, batch index: 90, train loss: 4.987934
+==>>> epoch: 1, batch index: 100, train loss: 5.008496
+==>>> epoch: 1, batch index: 110, train loss: 5.012855
+==>>> epoch: 1, batch index: 120, train loss: 4.952409
+==>>> epoch: 1, batch index: 121, train loss: 4.953494
+Accuracy of the network on the train: 8 %
+top5 Accuracy of the network on the train: 21 %
+Accuracy of the network on the test: 7 %
+top5 Accuracy of the network on the test: 19 %
+>>>>>> current top1 acc : 0.07397003745318352
+>>>>>> current top5 acc : 0.199438202247191
+==>>> epoch: 2, batch index: 10, train loss: 3.187753
+==>>> epoch: 2, batch index: 20, train loss: 4.343425
+==>>> epoch: 2, batch index: 30, train loss: 4.690960
+==>>> epoch: 2, batch index: 40, train loss: 4.801408
+==>>> epoch: 2, batch index: 50, train loss: 4.836379
+==>>> epoch: 2, batch index: 60, train loss: 4.840325
+==>>> epoch: 2, batch index: 70, train loss: 4.860886
+==>>> epoch: 2, batch index: 80, train loss: 4.835619
+==>>> epoch: 2, batch index: 90, train loss: 4.779191
+==>>> epoch: 2, batch index: 100, train loss: 4.810540
+==>>> epoch: 2, batch index: 110, train loss: 4.834462
+==>>> epoch: 2, batch index: 120, train loss: 4.764592
+==>>> epoch: 2, batch index: 121, train loss: 4.758539
+Accuracy of the network on the train: 12 %
+top5 Accuracy of the network on the train: 28 %
+Accuracy of the network on the test: 11 %
+top5 Accuracy of the network on the test: 26 %
+>>>>>> current top1 acc : 0.11267166042446941
+>>>>>> current top5 acc : 0.2690387016229713
+==>>> epoch: 3, batch index: 10, train loss: 3.062695
+==>>> epoch: 3, batch index: 20, train loss: 4.180350
+==>>> epoch: 3, batch index: 30, train loss: 4.508906
+==>>> epoch: 3, batch index: 40, train loss: 4.599232
+==>>> epoch: 3, batch index: 50, train loss: 4.642134
+==>>> epoch: 3, batch index: 60, train loss: 4.634080
+==>>> epoch: 3, batch index: 70, train loss: 4.660237
+==>>> epoch: 3, batch index: 80, train loss: 4.615281
+==>>> epoch: 3, batch index: 90, train loss: 4.552352
+==>>> epoch: 3, batch index: 100, train loss: 4.587706
+==>>> epoch: 3, batch index: 110, train loss: 4.600573
+==>>> epoch: 3, batch index: 120, train loss: 4.524641
+==>>> epoch: 3, batch index: 121, train loss: 4.518290
+Accuracy of the network on the train: 19 %
+top5 Accuracy of the network on the train: 36 %
+Accuracy of the network on the test: 16 %
+top5 Accuracy of the network on the test: 34 %
+>>>>>> current top1 acc : 0.16853932584269662
+>>>>>> current top5 acc : 0.3464419475655431
+==>>> epoch: 4, batch index: 10, train loss: 2.896243
+==>>> epoch: 4, batch index: 20, train loss: 3.952603
+==>>> epoch: 4, batch index: 30, train loss: 4.249191
+==>>> epoch: 4, batch index: 40, train loss: 4.323499
+==>>> epoch: 4, batch index: 50, train loss: 4.366334
+==>>> epoch: 4, batch index: 60, train loss: 4.356369
+==>>> epoch: 4, batch index: 70, train loss: 4.375041
+==>>> epoch: 4, batch index: 80, train loss: 4.326226
+==>>> epoch: 4, batch index: 90, train loss: 4.257516
+==>>> epoch: 4, batch index: 100, train loss: 4.310979
+==>>> epoch: 4, batch index: 110, train loss: 4.321826
+==>>> epoch: 4, batch index: 120, train loss: 4.234772
+==>>> epoch: 4, batch index: 121, train loss: 4.240710
+Accuracy of the network on the train: 26 %
+top5 Accuracy of the network on the train: 45 %
+Accuracy of the network on the test: 24 %
+top5 Accuracy of the network on the test: 42 %
+>>>>>> current top1 acc : 0.2406367041198502
+>>>>>> current top5 acc : 0.42696629213483145
+==>>> epoch: 5, batch index: 10, train loss: 2.708210
+==>>> epoch: 5, batch index: 20, train loss: 3.710177
+==>>> epoch: 5, batch index: 30, train loss: 3.963646
+==>>> epoch: 5, batch index: 40, train loss: 4.027632
+==>>> epoch: 5, batch index: 50, train loss: 4.079021
+==>>> epoch: 5, batch index: 60, train loss: 4.068157
+==>>> epoch: 5, batch index: 70, train loss: 4.076458
+==>>> epoch: 5, batch index: 80, train loss: 4.034325
+==>>> epoch: 5, batch index: 90, train loss: 3.962917
+==>>> epoch: 5, batch index: 100, train loss: 4.016994
+==>>> epoch: 5, batch index: 110, train loss: 4.033262
+==>>> epoch: 5, batch index: 120, train loss: 3.955366
+==>>> epoch: 5, batch index: 121, train loss: 3.954504
+Accuracy of the network on the train: 32 %
+top5 Accuracy of the network on the train: 51 %
+Accuracy of the network on the test: 29 %
+top5 Accuracy of the network on the test: 48 %
+>>>>>> current top1 acc : 0.2949438202247191
+>>>>>> current top5 acc : 0.4893882646691635
+==>>> epoch: 6, batch index: 10, train loss: 2.512793
+==>>> epoch: 6, batch index: 20, train loss: 3.449596
+==>>> epoch: 6, batch index: 30, train loss: 3.699349
+==>>> epoch: 6, batch index: 40, train loss: 3.742269
+==>>> epoch: 6, batch index: 50, train loss: 3.787586
+==>>> epoch: 6, batch index: 60, train loss: 3.787342
+==>>> epoch: 6, batch index: 70, train loss: 3.791983
+==>>> epoch: 6, batch index: 80, train loss: 3.769754
+==>>> epoch: 6, batch index: 90, train loss: 3.690216
+==>>> epoch: 6, batch index: 100, train loss: 3.770262
+==>>> epoch: 6, batch index: 110, train loss: 3.771239
+==>>> epoch: 6, batch index: 120, train loss: 3.693674
+==>>> epoch: 6, batch index: 121, train loss: 3.699886
+Accuracy of the network on the train: 36 %
+top5 Accuracy of the network on the train: 55 %
+Accuracy of the network on the test: 33 %
+top5 Accuracy of the network on the test: 52 %
+>>>>>> current top1 acc : 0.33707865168539325
+>>>>>> current top5 acc : 0.5262172284644194
+==>>> epoch: 7, batch index: 10, train loss: 2.342225
+==>>> epoch: 7, batch index: 20, train loss: 3.233289
+==>>> epoch: 7, batch index: 30, train loss: 3.453527
+==>>> epoch: 7, batch index: 40, train loss: 3.501056
+==>>> epoch: 7, batch index: 50, train loss: 3.551808
+==>>> epoch: 7, batch index: 60, train loss: 3.542163
+==>>> epoch: 7, batch index: 70, train loss: 3.554522
+==>>> epoch: 7, batch index: 80, train loss: 3.524478
+==>>> epoch: 7, batch index: 90, train loss: 3.439963
+==>>> epoch: 7, batch index: 100, train loss: 3.530794
+==>>> epoch: 7, batch index: 110, train loss: 3.560305
+==>>> epoch: 7, batch index: 120, train loss: 3.492495
+==>>> epoch: 7, batch index: 121, train loss: 3.496870
+Accuracy of the network on the train: 39 %
+top5 Accuracy of the network on the train: 58 %
+Accuracy of the network on the test: 36 %
+top5 Accuracy of the network on the test: 55 %
+>>>>>> current top1 acc : 0.36485642946317104
+>>>>>> current top5 acc : 0.5583645443196005
+==>>> epoch: 8, batch index: 10, train loss: 2.201360
+==>>> epoch: 8, batch index: 20, train loss: 3.058194
+==>>> epoch: 8, batch index: 30, train loss: 3.253419
+==>>> epoch: 8, batch index: 40, train loss: 3.292438
+==>>> epoch: 8, batch index: 50, train loss: 3.337786
+==>>> epoch: 8, batch index: 60, train loss: 3.344759
+==>>> epoch: 8, batch index: 70, train loss: 3.360869
+==>>> epoch: 8, batch index: 80, train loss: 3.332133
+==>>> epoch: 8, batch index: 90, train loss: 3.265193
+==>>> epoch: 8, batch index: 100, train loss: 3.369509
+==>>> epoch: 8, batch index: 110, train loss: 3.370722
+==>>> epoch: 8, batch index: 120, train loss: 3.320054
+==>>> epoch: 8, batch index: 121, train loss: 3.324490
+Accuracy of the network on the train: 42 %
+top5 Accuracy of the network on the train: 61 %
+Accuracy of the network on the test: 38 %
+top5 Accuracy of the network on the test: 58 %
+>>>>>> current top1 acc : 0.3888888888888889
+>>>>>> current top5 acc : 0.5808364544319601
+==>>> epoch: 9, batch index: 10, train loss: 2.089348
+==>>> epoch: 9, batch index: 20, train loss: 2.909096
+==>>> epoch: 9, batch index: 30, train loss: 3.105290
+==>>> epoch: 9, batch index: 40, train loss: 3.128333
+==>>> epoch: 9, batch index: 50, train loss: 3.184430
+==>>> epoch: 9, batch index: 60, train loss: 3.193912
+==>>> epoch: 9, batch index: 70, train loss: 3.204163
+==>>> epoch: 9, batch index: 80, train loss: 3.174767
+==>>> epoch: 9, batch index: 90, train loss: 3.100304
+==>>> epoch: 9, batch index: 100, train loss: 3.216107
+==>>> epoch: 9, batch index: 110, train loss: 3.232149
+==>>> epoch: 9, batch index: 120, train loss: 3.190307
+==>>> epoch: 9, batch index: 121, train loss: 3.200171
+Accuracy of the network on the train: 43 %
+top5 Accuracy of the network on the train: 64 %
+Accuracy of the network on the test: 40 %
+top5 Accuracy of the network on the test: 60 %
+>>>>>> current top1 acc : 0.40074906367041196
+>>>>>> current top5 acc : 0.601123595505618
+==>>> epoch: 10, batch index: 10, train loss: 2.007470
+==>>> epoch: 10, batch index: 20, train loss: 2.802667
+==>>> epoch: 10, batch index: 30, train loss: 2.979625
+==>>> epoch: 10, batch index: 40, train loss: 2.991601
+==>>> epoch: 10, batch index: 50, train loss: 3.043720
+==>>> epoch: 10, batch index: 60, train loss: 3.060988
+==>>> epoch: 10, batch index: 70, train loss: 3.073145
+==>>> epoch: 10, batch index: 80, train loss: 3.055561
+==>>> epoch: 10, batch index: 90, train loss: 2.990934
+==>>> epoch: 10, batch index: 100, train loss: 3.108662
+==>>> epoch: 10, batch index: 110, train loss: 3.102258
+==>>> epoch: 10, batch index: 120, train loss: 3.069477
+==>>> epoch: 10, batch index: 121, train loss: 3.078271
+Accuracy of the network on the train: 45 %
+top5 Accuracy of the network on the train: 65 %
+Accuracy of the network on the test: 41 %
+top5 Accuracy of the network on the test: 61 %
+>>>>>> current top1 acc : 0.4151061173533084
+>>>>>> current top5 acc : 0.6123595505617978
+==>>> epoch: 11, batch index: 10, train loss: 1.909335
+==>>> epoch: 11, batch index: 20, train loss: 2.708501
+==>>> epoch: 11, batch index: 30, train loss: 2.871800
+==>>> epoch: 11, batch index: 40, train loss: 2.885148
+==>>> epoch: 11, batch index: 50, train loss: 2.924286
+==>>> epoch: 11, batch index: 60, train loss: 2.941605
+==>>> epoch: 11, batch index: 70, train loss: 2.958403
+==>>> epoch: 11, batch index: 80, train loss: 2.932723
+==>>> epoch: 11, batch index: 90, train loss: 2.880229
+==>>> epoch: 11, batch index: 100, train loss: 3.003130
+==>>> epoch: 11, batch index: 110, train loss: 3.005535
+==>>> epoch: 11, batch index: 120, train loss: 2.972340
+==>>> epoch: 11, batch index: 121, train loss: 2.977175
+Accuracy of the network on the train: 46 %
+top5 Accuracy of the network on the train: 66 %
+Accuracy of the network on the test: 42 %
+top5 Accuracy of the network on the test: 62 %
+>>>>>> current top1 acc : 0.4241573033707865
+>>>>>> current top5 acc : 0.6292134831460674
+==>>> epoch: 12, batch index: 10, train loss: 1.855787
+==>>> epoch: 12, batch index: 20, train loss: 2.622676
+==>>> epoch: 12, batch index: 30, train loss: 2.773249
+==>>> epoch: 12, batch index: 40, train loss: 2.793602
+==>>> epoch: 12, batch index: 50, train loss: 2.833689
+==>>> epoch: 12, batch index: 60, train loss: 2.853287
+==>>> epoch: 12, batch index: 70, train loss: 2.892690
+==>>> epoch: 12, batch index: 80, train loss: 2.875656
+==>>> epoch: 12, batch index: 90, train loss: 2.802314
+==>>> epoch: 12, batch index: 100, train loss: 2.913255
+==>>> epoch: 12, batch index: 110, train loss: 2.907569
+==>>> epoch: 12, batch index: 120, train loss: 2.886979
+==>>> epoch: 12, batch index: 121, train loss: 2.892749
+Accuracy of the network on the train: 47 %
+top5 Accuracy of the network on the train: 68 %
+Accuracy of the network on the test: 43 %
+top5 Accuracy of the network on the test: 63 %
+>>>>>> current top1 acc : 0.43164794007490637
+>>>>>> current top5 acc : 0.6360799001248439
+==>>> epoch: 13, batch index: 10, train loss: 1.784223
+==>>> epoch: 13, batch index: 20, train loss: 2.558175
+==>>> epoch: 13, batch index: 30, train loss: 2.702912
+==>>> epoch: 13, batch index: 40, train loss: 2.717172
+==>>> epoch: 13, batch index: 50, train loss: 2.746804
+==>>> epoch: 13, batch index: 60, train loss: 2.771728
+==>>> epoch: 13, batch index: 70, train loss: 2.799157
+==>>> epoch: 13, batch index: 80, train loss: 2.767497
+==>>> epoch: 13, batch index: 90, train loss: 2.713801
+==>>> epoch: 13, batch index: 100, train loss: 2.834123
+==>>> epoch: 13, batch index: 110, train loss: 2.831943
+==>>> epoch: 13, batch index: 120, train loss: 2.798149
+==>>> epoch: 13, batch index: 121, train loss: 2.801448
+Accuracy of the network on the train: 48 %
+top5 Accuracy of the network on the train: 69 %
+Accuracy of the network on the test: 43 %
+top5 Accuracy of the network on the test: 64 %
+>>>>>> current top1 acc : 0.4369538077403246
+>>>>>> current top5 acc : 0.6479400749063671
+==>>> epoch: 14, batch index: 10, train loss: 1.743153
+==>>> epoch: 14, batch index: 20, train loss: 2.480681
+==>>> epoch: 14, batch index: 30, train loss: 2.629172
+==>>> epoch: 14, batch index: 40, train loss: 2.641615
+==>>> epoch: 14, batch index: 50, train loss: 2.680140
+==>>> epoch: 14, batch index: 60, train loss: 2.714153
+==>>> epoch: 14, batch index: 70, train loss: 2.725841
+==>>> epoch: 14, batch index: 80, train loss: 2.701703
+==>>> epoch: 14, batch index: 90, train loss: 2.641772
+==>>> epoch: 14, batch index: 100, train loss: 2.766220
+==>>> epoch: 14, batch index: 110, train loss: 2.772751
+==>>> epoch: 14, batch index: 120, train loss: 2.749858
+==>>> epoch: 14, batch index: 121, train loss: 2.762130
+Accuracy of the network on the train: 49 %
+top5 Accuracy of the network on the train: 70 %
+Accuracy of the network on the test: 44 %
+top5 Accuracy of the network on the test: 65 %
+>>>>>> current top1 acc : 0.4453807740324594
+>>>>>> current top5 acc : 0.6541822721598003
+==>>> epoch: 15, batch index: 10, train loss: 1.707637
+==>>> epoch: 15, batch index: 20, train loss: 2.427800
+==>>> epoch: 15, batch index: 30, train loss: 2.574737
+==>>> epoch: 15, batch index: 40, train loss: 2.583990
+==>>> epoch: 15, batch index: 50, train loss: 2.613545
+==>>> epoch: 15, batch index: 60, train loss: 2.646285
+==>>> epoch: 15, batch index: 70, train loss: 2.668374
+==>>> epoch: 15, batch index: 80, train loss: 2.635722
+==>>> epoch: 15, batch index: 90, train loss: 2.583011
+==>>> epoch: 15, batch index: 100, train loss: 2.693390
+==>>> epoch: 15, batch index: 110, train loss: 2.707362
+==>>> epoch: 15, batch index: 120, train loss: 2.680984
+==>>> epoch: 15, batch index: 121, train loss: 2.682995
+Accuracy of the network on the train: 50 %
+top5 Accuracy of the network on the train: 71 %
+Accuracy of the network on the test: 44 %
+top5 Accuracy of the network on the test: 66 %
+>>>>>> current top1 acc : 0.44725343320848937
+>>>>>> current top5 acc : 0.6626092384519351
+==>>> epoch: 16, batch index: 10, train loss: 1.663995
+==>>> epoch: 16, batch index: 20, train loss: 2.370488
+==>>> epoch: 16, batch index: 30, train loss: 2.505192
+==>>> epoch: 16, batch index: 40, train loss: 2.510132
+==>>> epoch: 16, batch index: 50, train loss: 2.548311
+==>>> epoch: 16, batch index: 60, train loss: 2.590690
+==>>> epoch: 16, batch index: 70, train loss: 2.608509
+==>>> epoch: 16, batch index: 80, train loss: 2.585181
+==>>> epoch: 16, batch index: 90, train loss: 2.531882
+==>>> epoch: 16, batch index: 100, train loss: 2.637036
+==>>> epoch: 16, batch index: 110, train loss: 2.637599
+==>>> epoch: 16, batch index: 120, train loss: 2.622086
+==>>> epoch: 16, batch index: 121, train loss: 2.626640
+Accuracy of the network on the train: 50 %
+top5 Accuracy of the network on the train: 72 %
+Accuracy of the network on the test: 45 %
+top5 Accuracy of the network on the test: 66 %
+>>>>>> current top1 acc : 0.4519350811485643
+>>>>>> current top5 acc : 0.6679151061173533
+==>>> epoch: 17, batch index: 10, train loss: 1.627548
+==>>> epoch: 17, batch index: 20, train loss: 2.331422
+==>>> epoch: 17, batch index: 30, train loss: 2.460643
+==>>> epoch: 17, batch index: 40, train loss: 2.469067
+==>>> epoch: 17, batch index: 50, train loss: 2.501579
+==>>> epoch: 17, batch index: 60, train loss: 2.547799
+==>>> epoch: 17, batch index: 70, train loss: 2.556932
+==>>> epoch: 17, batch index: 80, train loss: 2.532886
+==>>> epoch: 17, batch index: 90, train loss: 2.466000
+==>>> epoch: 17, batch index: 100, train loss: 2.590891
+==>>> epoch: 17, batch index: 110, train loss: 2.589407
+==>>> epoch: 17, batch index: 120, train loss: 2.567536
+==>>> epoch: 17, batch index: 121, train loss: 2.581287
+Accuracy of the network on the train: 50 %
+top5 Accuracy of the network on the train: 73 %
+Accuracy of the network on the test: 45 %
+top5 Accuracy of the network on the test: 67 %
+>>>>>> current top1 acc : 0.45630461922596754
+>>>>>> current top5 acc : 0.6757178526841449
+==>>> epoch: 18, batch index: 10, train loss: 1.589256
+==>>> epoch: 18, batch index: 20, train loss: 2.295913
+==>>> epoch: 18, batch index: 30, train loss: 2.414639
+==>>> epoch: 18, batch index: 40, train loss: 2.420843
+==>>> epoch: 18, batch index: 50, train loss: 2.451368
+==>>> epoch: 18, batch index: 60, train loss: 2.474763
+==>>> epoch: 18, batch index: 70, train loss: 2.493195
+==>>> epoch: 18, batch index: 80, train loss: 2.463544
+==>>> epoch: 18, batch index: 90, train loss: 2.420076
+==>>> epoch: 18, batch index: 100, train loss: 2.530310
+==>>> epoch: 18, batch index: 110, train loss: 2.536581
+==>>> epoch: 18, batch index: 120, train loss: 2.518313
+==>>> epoch: 18, batch index: 121, train loss: 2.522969
+Accuracy of the network on the train: 51 %
+top5 Accuracy of the network on the train: 74 %
+Accuracy of the network on the test: 45 %
+top5 Accuracy of the network on the test: 68 %
+>>>>>> current top1 acc : 0.4591136079900125
+>>>>>> current top5 acc : 0.6850811485642946
+==>>> epoch: 19, batch index: 10, train loss: 1.558931
+==>>> epoch: 19, batch index: 20, train loss: 2.223592
+==>>> epoch: 19, batch index: 30, train loss: 2.365619
+==>>> epoch: 19, batch index: 40, train loss: 2.389580
+==>>> epoch: 19, batch index: 50, train loss: 2.392897
+==>>> epoch: 19, batch index: 60, train loss: 2.415301
+==>>> epoch: 19, batch index: 70, train loss: 2.451516
+==>>> epoch: 19, batch index: 80, train loss: 2.424705
+==>>> epoch: 19, batch index: 90, train loss: 2.370188
+==>>> epoch: 19, batch index: 100, train loss: 2.476515
+==>>> epoch: 19, batch index: 110, train loss: 2.495646
+==>>> epoch: 19, batch index: 120, train loss: 2.487296
+==>>> epoch: 19, batch index: 121, train loss: 2.493092
+Accuracy of the network on the train: 52 %
+top5 Accuracy of the network on the train: 74 %
+Accuracy of the network on the test: 46 %
+top5 Accuracy of the network on the test: 69 %
+>>>>>> current top1 acc : 0.46878901373283394
+>>>>>> current top5 acc : 0.6913233458177278
+==>>> epoch: 20, batch index: 10, train loss: 1.529116
+==>>> epoch: 20, batch index: 20, train loss: 2.183289
+==>>> epoch: 20, batch index: 30, train loss: 2.303952
+==>>> epoch: 20, batch index: 40, train loss: 2.325809
+==>>> epoch: 20, batch index: 50, train loss: 2.348397
+==>>> epoch: 20, batch index: 60, train loss: 2.394141
+==>>> epoch: 20, batch index: 70, train loss: 2.415350
+==>>> epoch: 20, batch index: 80, train loss: 2.387640
+==>>> epoch: 20, batch index: 90, train loss: 2.340122
+==>>> epoch: 20, batch index: 100, train loss: 2.446397
+==>>> epoch: 20, batch index: 110, train loss: 2.458189
+==>>> epoch: 20, batch index: 120, train loss: 2.449393
+==>>> epoch: 20, batch index: 121, train loss: 2.450910
+Accuracy of the network on the train: 53 %
+top5 Accuracy of the network on the train: 75 %
+Accuracy of the network on the test: 46 %
+top5 Accuracy of the network on the test: 69 %
+==>>> epoch: 21, batch index: 10, train loss: 1.493371
+==>>> epoch: 21, batch index: 20, train loss: 2.154582
+==>>> epoch: 21, batch index: 30, train loss: 2.278416
+==>>> epoch: 21, batch index: 40, train loss: 2.295555
+==>>> epoch: 21, batch index: 50, train loss: 2.309474
+==>>> epoch: 21, batch index: 60, train loss: 2.343458
+==>>> epoch: 21, batch index: 70, train loss: 2.366965
+==>>> epoch: 21, batch index: 80, train loss: 2.350018
+==>>> epoch: 21, batch index: 90, train loss: 2.302033
+==>>> epoch: 21, batch index: 100, train loss: 2.396782
+==>>> epoch: 21, batch index: 110, train loss: 2.409682
+==>>> epoch: 21, batch index: 120, train loss: 2.396598
+==>>> epoch: 21, batch index: 121, train loss: 2.403565
+Accuracy of the network on the train: 53 %
+top5 Accuracy of the network on the train: 76 %
+Accuracy of the network on the test: 47 %
+top5 Accuracy of the network on the test: 70 %
+>>>>>> current top1 acc : 0.47503121098626716
+>>>>>> current top5 acc : 0.701310861423221
+==>>> epoch: 22, batch index: 10, train loss: 1.473999
+==>>> epoch: 22, batch index: 20, train loss: 2.121184
+==>>> epoch: 22, batch index: 30, train loss: 2.241870
+==>>> epoch: 22, batch index: 40, train loss: 2.263700
+==>>> epoch: 22, batch index: 50, train loss: 2.266110
+==>>> epoch: 22, batch index: 60, train loss: 2.317178
+==>>> epoch: 22, batch index: 70, train loss: 2.332047
+==>>> epoch: 22, batch index: 80, train loss: 2.293223
+==>>> epoch: 22, batch index: 90, train loss: 2.253965
+==>>> epoch: 22, batch index: 100, train loss: 2.363087
+==>>> epoch: 22, batch index: 110, train loss: 2.372142
+==>>> epoch: 22, batch index: 120, train loss: 2.363009
+==>>> epoch: 22, batch index: 121, train loss: 2.362185
+Accuracy of the network on the train: 54 %
+top5 Accuracy of the network on the train: 76 %
+Accuracy of the network on the test: 47 %
+top5 Accuracy of the network on the test: 70 %
+==>>> epoch: 23, batch index: 10, train loss: 1.448657
+==>>> epoch: 23, batch index: 20, train loss: 2.095476
+==>>> epoch: 23, batch index: 30, train loss: 2.216048
+==>>> epoch: 23, batch index: 40, train loss: 2.214481
+==>>> epoch: 23, batch index: 50, train loss: 2.228606
+==>>> epoch: 23, batch index: 60, train loss: 2.268851
+==>>> epoch: 23, batch index: 70, train loss: 2.305204
+==>>> epoch: 23, batch index: 80, train loss: 2.265699
+==>>> epoch: 23, batch index: 90, train loss: 2.207518
+==>>> epoch: 23, batch index: 100, train loss: 2.328256
+==>>> epoch: 23, batch index: 110, train loss: 2.330325
+==>>> epoch: 23, batch index: 120, train loss: 2.318187
+==>>> epoch: 23, batch index: 121, train loss: 2.324515
+Accuracy of the network on the train: 54 %
+top5 Accuracy of the network on the train: 77 %
+Accuracy of the network on the test: 47 %
+top5 Accuracy of the network on the test: 70 %
+>>>>>> current top1 acc : 0.4778401997503121
+>>>>>> current top5 acc : 0.7069288389513109
+==>>> epoch: 24, batch index: 10, train loss: 1.419340
+==>>> epoch: 24, batch index: 20, train loss: 2.052212
+==>>> epoch: 24, batch index: 30, train loss: 2.178902
+==>>> epoch: 24, batch index: 40, train loss: 2.180371
+==>>> epoch: 24, batch index: 50, train loss: 2.183204
+==>>> epoch: 24, batch index: 60, train loss: 2.231997
+==>>> epoch: 24, batch index: 70, train loss: 2.263308
+==>>> epoch: 24, batch index: 80, train loss: 2.236846
+==>>> epoch: 24, batch index: 90, train loss: 2.192170
+==>>> epoch: 24, batch index: 100, train loss: 2.292126
+==>>> epoch: 24, batch index: 110, train loss: 2.312321
+==>>> epoch: 24, batch index: 120, train loss: 2.295593
+==>>> epoch: 24, batch index: 121, train loss: 2.304457
+Accuracy of the network on the train: 55 %
+top5 Accuracy of the network on the train: 77 %
+Accuracy of the network on the test: 48 %
+top5 Accuracy of the network on the test: 71 %
+>>>>>> current top1 acc : 0.48158551810237205
+>>>>>> current top5 acc : 0.7119225967540574
+==>>> epoch: 25, batch index: 10, train loss: 1.403188
+==>>> epoch: 25, batch index: 20, train loss: 2.017341
+==>>> epoch: 25, batch index: 30, train loss: 2.130688
+==>>> epoch: 25, batch index: 40, train loss: 2.154464
+==>>> epoch: 25, batch index: 50, train loss: 2.145760
+==>>> epoch: 25, batch index: 60, train loss: 2.194297
+==>>> epoch: 25, batch index: 70, train loss: 2.219777
+==>>> epoch: 25, batch index: 80, train loss: 2.195178
+==>>> epoch: 25, batch index: 90, train loss: 2.143193
+==>>> epoch: 25, batch index: 100, train loss: 2.250954
+==>>> epoch: 25, batch index: 110, train loss: 2.273786
+==>>> epoch: 25, batch index: 120, train loss: 2.255886
+==>>> epoch: 25, batch index: 121, train loss: 2.259246
+Accuracy of the network on the train: 56 %
+top5 Accuracy of the network on the train: 78 %
+Accuracy of the network on the test: 48 %
+top5 Accuracy of the network on the test: 71 %
+==>>> epoch: 26, batch index: 10, train loss: 1.378511
+==>>> epoch: 26, batch index: 20, train loss: 1.991516
+==>>> epoch: 26, batch index: 30, train loss: 2.113584
+==>>> epoch: 26, batch index: 40, train loss: 2.131561
+==>>> epoch: 26, batch index: 50, train loss: 2.108982
+==>>> epoch: 26, batch index: 60, train loss: 2.157768
+==>>> epoch: 26, batch index: 70, train loss: 2.182437
+==>>> epoch: 26, batch index: 80, train loss: 2.160514
+==>>> epoch: 26, batch index: 90, train loss: 2.106903
+==>>> epoch: 26, batch index: 100, train loss: 2.220818
+==>>> epoch: 26, batch index: 110, train loss: 2.238002
+==>>> epoch: 26, batch index: 120, train loss: 2.237728
+==>>> epoch: 26, batch index: 121, train loss: 2.235553
+Accuracy of the network on the train: 56 %
+top5 Accuracy of the network on the train: 78 %
+Accuracy of the network on the test: 48 %
+top5 Accuracy of the network on the test: 71 %
+>>>>>> current top1 acc : 0.4884519350811486
+>>>>>> current top5 acc : 0.717852684144819
+==>>> epoch: 27, batch index: 10, train loss: 1.354362
+==>>> epoch: 27, batch index: 20, train loss: 1.970290
+==>>> epoch: 27, batch index: 30, train loss: 2.081361
+==>>> epoch: 27, batch index: 40, train loss: 2.089370
+==>>> epoch: 27, batch index: 50, train loss: 2.084921
+==>>> epoch: 27, batch index: 60, train loss: 2.133078
+==>>> epoch: 27, batch index: 70, train loss: 2.162400
+==>>> epoch: 27, batch index: 80, train loss: 2.135197
+==>>> epoch: 27, batch index: 90, train loss: 2.091158
+==>>> epoch: 27, batch index: 100, train loss: 2.188592
+==>>> epoch: 27, batch index: 110, train loss: 2.207329
+==>>> epoch: 27, batch index: 120, train loss: 2.197403
+==>>> epoch: 27, batch index: 121, train loss: 2.201227
+Accuracy of the network on the train: 56 %
+top5 Accuracy of the network on the train: 79 %
+Accuracy of the network on the test: 49 %
+top5 Accuracy of the network on the test: 71 %
+>>>>>> current top1 acc : 0.4934456928838951
+>>>>>> current top5 acc : 0.7197253433208489
+==>>> epoch: 28, batch index: 10, train loss: 1.327273
+==>>> epoch: 28, batch index: 20, train loss: 1.942526
+==>>> epoch: 28, batch index: 30, train loss: 2.050909
+==>>> epoch: 28, batch index: 40, train loss: 2.060618
+==>>> epoch: 28, batch index: 50, train loss: 2.054009
+==>>> epoch: 28, batch index: 60, train loss: 2.096166
+==>>> epoch: 28, batch index: 70, train loss: 2.117763
+==>>> epoch: 28, batch index: 80, train loss: 2.104931
+==>>> epoch: 28, batch index: 90, train loss: 2.052355
+==>>> epoch: 28, batch index: 100, train loss: 2.154438
+==>>> epoch: 28, batch index: 110, train loss: 2.175391
+==>>> epoch: 28, batch index: 120, train loss: 2.160769
+==>>> epoch: 28, batch index: 121, train loss: 2.158664
+Accuracy of the network on the train: 57 %
+top5 Accuracy of the network on the train: 79 %
+Accuracy of the network on the test: 49 %
+top5 Accuracy of the network on the test: 72 %
+>>>>>> current top1 acc : 0.4912609238451935
+>>>>>> current top5 acc : 0.7203495630461922
+==>>> epoch: 29, batch index: 10, train loss: 1.309840
+==>>> epoch: 29, batch index: 20, train loss: 1.899307
+==>>> epoch: 29, batch index: 30, train loss: 2.027046
+==>>> epoch: 29, batch index: 40, train loss: 2.035570
+==>>> epoch: 29, batch index: 50, train loss: 2.009883
+==>>> epoch: 29, batch index: 60, train loss: 2.067502
+==>>> epoch: 29, batch index: 70, train loss: 2.092800
+==>>> epoch: 29, batch index: 80, train loss: 2.076795
+==>>> epoch: 29, batch index: 90, train loss: 2.027958
+==>>> epoch: 29, batch index: 100, train loss: 2.122149
+==>>> epoch: 29, batch index: 110, train loss: 2.149941
+==>>> epoch: 29, batch index: 120, train loss: 2.131343
+==>>> epoch: 29, batch index: 121, train loss: 2.125503
+Accuracy of the network on the train: 57 %
+top5 Accuracy of the network on the train: 80 %
+Accuracy of the network on the test: 49 %
+top5 Accuracy of the network on the test: 72 %
+>>>>>> current top1 acc : 0.4918851435705368
+>>>>>> current top5 acc : 0.7247191011235955
+==>>> epoch: 30, batch index: 10, train loss: 1.301474
+==>>> epoch: 30, batch index: 20, train loss: 1.875233
+==>>> epoch: 30, batch index: 30, train loss: 1.994717
+==>>> epoch: 30, batch index: 40, train loss: 2.007476
+==>>> epoch: 30, batch index: 50, train loss: 1.993388
+==>>> epoch: 30, batch index: 60, train loss: 2.044436
+==>>> epoch: 30, batch index: 70, train loss: 2.062183
+==>>> epoch: 30, batch index: 80, train loss: 2.034295
+==>>> epoch: 30, batch index: 90, train loss: 1.985028
+==>>> epoch: 30, batch index: 100, train loss: 2.097416
+==>>> epoch: 30, batch index: 110, train loss: 2.120653
+==>>> epoch: 30, batch index: 120, train loss: 2.107700
+==>>> epoch: 30, batch index: 121, train loss: 2.101841
+Accuracy of the network on the train: 58 %
+top5 Accuracy of the network on the train: 80 %
+Accuracy of the network on the test: 49 %
