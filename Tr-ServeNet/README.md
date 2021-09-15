@@ -6,9 +6,11 @@ Yilong Yang, Zhaotian Li, Jing Zhang and Yang Chen. "Transfer Learning for Web S
 
 #### 
 Dataset: 
-App Dataset: Appstore.csv
+App Dataset: Appstore.csv;
+
 Service Dataset: ServiceWithName.csv
 
+Code:
 * 1_Pre_Processing: Preprocess App and Web service data, calculate and obtain mathematical features.
 
 * 2_Data_Prepare_for_DataGenerator: Further process the data, divide the training and test set, tokenize and padding, etc.
