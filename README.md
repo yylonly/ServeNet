@@ -12,6 +12,10 @@ Automated service classification plays a crucial role in service management such
 
 * Yilong Yang, Wei Ke, Weiru Wang, Yongxin Zhao. "[Deep Learning for Web Services Classification](https://doi.org/10.1109/ICWS.2019.00079)". presented at the IEEE 11th International Conferences on Web Services (ICWS’19), Milan, Italy, July 2019.
 
+* Jing Zhang, Yang Chen, Yilong Yang, Changran Lei, Deqiang Wang. "ServeNet-LT: A Normalized Multi-head Deep Neural Network for Long-tailed Web Services Classification." presented at IEEE International Conferences on Web Services (ICWS’21), Sep. 2021. (Regular Full Paper).
+
+* Yilong Yang, Zhaotian Li, Jing Zhang and Yang Chen. "Transfer Learning for Web Services Classification." presented at IEEE 13th International Conferences on Web Services (ICWS'21), Sept. 2021. (Short Paper).
+
 
 ### DataSet in Release:
 
