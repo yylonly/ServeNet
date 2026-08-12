@@ -1,4 +1,5 @@
 
+
 # ServeNet: A Deep Neural Network for Web Service Classification
 
 
@@ -48,7 +49,7 @@ Directly open .ipynb in Google Colab and prepare data
 
 #### CPU
 * docker build . -t servenet:cpu -f Dockerfile-CPU
-* docker run -itd --rm --name servenet-cpu -p 8888:8888 -v /yourpath:/data servenet:cpu
+* docker run -itd --rm --name servenet-cpu -p 8888:8888 -v /yourpath:/data servenet:cpu  # Replace /yourpath with the path to your dataset directory
 #### Find URL in log to open jupyter lab
 * docker logs servenet-cpu 
 
@@ -58,5 +59,4 @@ Directly open .ipynb in Google Colab and prepare data
 * docker run -itd --rm --runtime=nvidia --name servenet-gpu -p 8888:8888 -v /yourpath:/data servenet:gpu
 
 #### Find URL in log to open jupyter lab
-* docker logs servenet-gpu 
-
+* docker logs servenet-gpu
